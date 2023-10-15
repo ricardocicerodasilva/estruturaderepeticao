@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jogo de Adivinhação</title>
+</head>
+
+<body>
+    <P>Atividade 4</P>
+    <P>digite um número entre 1 e 10 </P>
+    <input type="number" id="numeroSecreto" placeholder="Número secreto">
+    <button onclick="iniciarjogo()">iniciar</button>
+
+    <div id="jogo" style="display: none;"></div>
+    <p>sua vez jogador 2:</p>
+    <input type="number" id="tentativa" placeholder="tentativa">
+    <button onclick="verificartentativa()">tentar</button>
+    <p Id="resultado"></p>
+    </div>
+
+
+    <script>
+        let numeroSecreto;
+        let tentativas = 0;
+        function iniciarjogo() {
+            numeroSecreto = document.getElementById("numeroSecreto").value;
+            if (numeroSecreto >= 1 && numeroSecreto <= 10) {
+                document.getElementById("jogo").style.display = "block";
+            } else {
+                alert("por favor, escolha um número entre 1 e 10.");
+            }
+        }
+
+        function verificartentativa() {
+            const tentativa = document.getElementById("tentativa").innerHTML.value;
+            if (tentativa >= 0 && tentativa < 11) {
+                tentativa++;
+                if (tentativa == numeroSecreto) {
+                    document.getElementById("resultado").innerHTML = "parabéns você acertou o número" + numeroSecreto + "em" + tentativas + "tentativa(s).";
+                } else if (tentativa < numeroSecreto) {
+                    document.getElementById("resultado").innerHTML = "tente novamente o número secreto é maior";
+                }
+                else {
+                    document.getElementById("resultado").innerHTML = "tente novamente o número secreto é menor";
+                }
+            } else {
+                alert("por favor, insira um número válido entre 1 e 10");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
